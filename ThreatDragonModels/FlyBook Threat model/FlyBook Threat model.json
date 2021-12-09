@@ -519,7 +519,7 @@
         }
       },
       {
-        "title": "DFD LEVEL 0",
+        "title": "DFD /book",
         "thumbnail": "./public/content/images/thumbnail.jpg",
         "id": 1,
         "diagramJson": {
