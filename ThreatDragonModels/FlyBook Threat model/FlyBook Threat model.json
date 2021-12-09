@@ -6,7 +6,7 @@
     "contributors": [],
     "diagrams": [
       {
-        "title": "DFD",
+        "title": "DFD - loginprocess",
         "thumbnail": "./public/content/images/thumbnail.jpg",
         "id": 0,
         "diagramJson": {
