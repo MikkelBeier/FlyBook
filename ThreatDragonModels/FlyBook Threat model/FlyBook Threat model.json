@@ -44,8 +44,8 @@
                 "height": 80
               },
               "position": {
-                "x": 680,
-                "y": 506
+                "x": 679,
+                "y": 491
               },
               "angle": 0,
               "id": "7a6b5a93-feaa-4331-b744-12d16ab724bb",
@@ -71,8 +71,8 @@
                 "height": 80
               },
               "position": {
-                "x": 387,
-                "y": 497
+                "x": 388,
+                "y": 496
               },
               "angle": 0,
               "id": "82b86226-c829-458f-90ee-be9f756b4523",
@@ -97,22 +97,53 @@
                 "height": 100
               },
               "position": {
-                "x": 366,
+                "x": 365,
                 "y": 170
               },
               "angle": 0,
               "id": "9830a1e6-9483-4219-ac39-515e9810faa1",
               "z": 7,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Bruteforce",
+                  "type": "Spoofing",
+                  "description": "An attacker tries every combination of username/password to access an account."
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "ARP spoofing",
+                  "type": "Spoofing",
+                  "description": "MITM attack"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "description": "Distributed Denial of service attack.\nserver overload.",
+                  "title": "DDoS",
+                  "type": "Denial of service",
+                  "mitigation": "api key check. [api.php -l 4-15]"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "xss",
+                  "type": "Elevation of privilege",
+                  "description": "Cross-site-scripting. Hacker sends code into the system, in a way it can not handle"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
-                  "text": "web server"
+                  "text": "api"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -123,22 +154,32 @@
                 "height": 100
               },
               "position": {
-                "x": 615,
+                "x": 616,
                 "y": 171
               },
               "angle": 0,
               "id": "8421eeee-36b3-46c8-9b61-a8448f6d6d9e",
               "z": 8,
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "sql-injection",
+                  "type": "Tampering",
+                  "description": "injection malicious code into the database.",
+                  "mitigation": "??"
+                }
+              ],
               "attrs": {
                 ".element-shape": {
-                  "class": "element-shape hasNoOpenThreats isInScope"
+                  "class": "element-shape hasOpenThreats isInScope"
                 },
                 "text": {
                   "text": "login process"
                 },
                 ".element-text": {
-                  "class": "element-text hasNoOpenThreats isInScope"
+                  "class": "element-text hasOpenThreats isInScope"
                 }
               }
             },
@@ -163,7 +204,7 @@
                   "position": 0.5,
                   "attrs": {
                     "text": {
-                      "text": "http request",
+                      "text": "login response",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -209,7 +250,7 @@
                   },
                   "attrs": {
                     "text": {
-                      "text": "http response",
+                      "text": "login request",
                       "font-weight": "400",
                       "font-size": "small"
                     }
@@ -315,12 +356,166 @@
                   "class": "connection hasNoOpenThreats isInScope"
                 }
               }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "8421eeee-36b3-46c8-9b61-a8448f6d6d9e"
+              },
+              "target": {
+                "id": "7a6b5a93-feaa-4331-b744-12d16ab724bb"
+              },
+              "vertices": [
+                {
+                  "x": 651,
+                  "y": 353
+                }
+              ],
+              "id": "729ecf75-14cc-4f97-97c9-2251caa0bfcb",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "validate credentials\nsql query",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 13,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "7a6b5a93-feaa-4331-b744-12d16ab724bb"
+              },
+              "target": {
+                "id": "8421eeee-36b3-46c8-9b61-a8448f6d6d9e"
+              },
+              "vertices": [
+                {
+                  "x": 814,
+                  "y": 357
+                }
+              ],
+              "id": "d3b696ab-95a4-499b-9960-cd28aa64c160",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "validate credentials\nsql query response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 14,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "smooth": true,
+              "source": {
+                "id": "82b86226-c829-458f-90ee-be9f756b4523"
+              },
+              "target": {
+                "id": "9830a1e6-9483-4219-ac39-515e9810faa1"
+              },
+              "vertices": [],
+              "id": "0823c8f3-aefb-42ef-b2e8-6329eea8775e",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "html pages",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 15,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "smooth": true,
+              "source": {
+                "x": 262,
+                "y": 94
+              },
+              "target": {
+                "x": 275,
+                "y": 382
+              },
+              "vertices": [
+                {
+                  "x": 298,
+                  "y": 227
+                }
+              ],
+              "id": "12fd8e34-1540-464c-b810-b400679a03e5",
+              "z": 16,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Boundary",
+              "smooth": true,
+              "source": {
+                "x": 576,
+                "y": 441
+              },
+              "target": {
+                "x": 904,
+                "y": 341
+              },
+              "vertices": [
+                {
+                  "x": 754,
+                  "y": 428
+                }
+              ],
+              "id": "d4ca973b-b3f6-4c3c-9377-9e6ec6af6a18",
+              "z": 17,
+              "attrs": {}
             }
           ]
         },
         "size": {
           "height": 590,
-          "width": 872
+          "width": 913.6317749023438
         }
       },
       {
