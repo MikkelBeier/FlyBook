@@ -6,7 +6,7 @@
     "contributors": [],
     "diagrams": [
       {
-        "title": "DFD - /index",
+        "title": "DFD - flybook",
         "thumbnail": "./public/content/images/thumbnail.jpg",
         "id": 0,
         "diagramJson": {
@@ -1128,6 +1128,11 @@
           "height": 590,
           "width": 1123
         }
+      },
+      {
+        "title": "dfd flybook",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 2
       }
     ]
   }
