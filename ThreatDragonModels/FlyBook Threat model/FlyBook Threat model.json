@@ -1788,6 +1788,11 @@
           "height": 590,
           "width": 1160
         }
+      },
+      {
+        "title": "Attack tree #1",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 3
       }
     ]
   }
